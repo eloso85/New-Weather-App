@@ -11,20 +11,15 @@ window.addEventListener('load', ()=>{
             lat = position.coords.latitude
         
             const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&appid=6d19623049abd3ae1e49417461fb8938`
-
+            const fiveDay = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&units=imperial&appid=6d19623049abd3ae1e49417461fb8938`
             fetch (api)
             .then (response =>{
                 return response.json();
             })
             .then (data =>{
                 console.log(data)
-                // $(".temperature-description").html(`
-                // ${data.weather[0].map(function(player){
-                //     return`
-                //     ${data.main}
-                //     `
-                // }).join('')}
-                // `)
+                
+               
                 const {temp} = data.main;
                 const weather = data.weather[0].description;
                 const location = data.name;
@@ -32,8 +27,17 @@ window.addEventListener('load', ()=>{
                 temperatureDegree.textContent = temp;
                 temperatureDescription.textContent = weather;
                 locationTimezone.textContent = location;
-                console.log(temp);
+                //console.log(temp);
             });
+            fetch (fiveDay)
+            .then (response =>{
+                return response.json();
+            })
+            .then (data2 =>{
+                console.log(data2)
+                
+               
+            }); 
         });
         
       
