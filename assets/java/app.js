@@ -25,8 +25,8 @@ window.addEventListener('load', ()=>{
                 //     `
                 // }).join('')}
                 // `)
-                const temp = data.main;
-                const weather = data.weather[0].main;
+                const {temp} = data.main;
+                const weather = data.weather[0].description;
                 const location = data.name;
                 //set Dom Elements from api
                 temperatureDegree.textContent = temp;
