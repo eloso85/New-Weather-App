@@ -4,6 +4,7 @@ window.addEventListener('load', ()=>{
     let temperatureDescription = document.querySelector('.temperature-description');
     let temperatureDegree = document.querySelector('.temperature-degree');
     let locationTimezone = document.querySelector('.location-timezone');
+    let fiveDay2 = document.querySelector('.five-day');
 
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position =>{
@@ -34,7 +35,9 @@ window.addEventListener('load', ()=>{
                 return response.json();
             })
             .then (data2 =>{
-                console.log(data2)
+                const temp = data2.list.main
+                fiveDay2.textContent = temp
+                console.log(temp)
                 
                
             }); 
