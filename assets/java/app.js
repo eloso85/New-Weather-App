@@ -35,8 +35,11 @@ window.addEventListener('load', ()=>{
                 return response.json();
             })
             .then (data2 =>{
-                const temp = data2.list.main
+                const temp = data2.list.map(function(response){
+                    return `${response.main.temp} ${response.dt_txt}`
+                })
                 fiveDay2.textContent = temp
+                console.log(data2)
                 console.log(temp)
                 
                
